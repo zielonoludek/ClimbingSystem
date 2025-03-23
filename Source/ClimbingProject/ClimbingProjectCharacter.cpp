@@ -93,6 +93,9 @@ void AClimbingProjectCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AClimbingProjectCharacter::Look);
+		
+		// Climbing
+		EnhancedInputComponent->BindAction(ClimbAction, ETriggerEvent::Started, this, &AClimbingProjectCharacter::OnClimbActionStarted);
 	}
 	else
 	{
@@ -135,3 +138,8 @@ void AClimbingProjectCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+void AClimbingProjectCharacter::OnClimbActionStarted(const FInputActionValue& Value) 
+{
+	Debug::Print(TEXT("Climb action started"));
+}
+
