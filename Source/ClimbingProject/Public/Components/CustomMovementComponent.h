@@ -8,7 +8,7 @@
  * 
  */
 UCLASS()
-class CLIMBINGSYSTEM_API UCustomMovementComponent : public UCharacterMovementComponent
+class CLIMBINGPROJECT_API UCustomMovementComponent : public UCharacterMovementComponent
 {
 	GENERATED_BODY()
 
