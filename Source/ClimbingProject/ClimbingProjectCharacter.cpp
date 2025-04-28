@@ -64,8 +64,6 @@ AClimbingProjectCharacter::AClimbingProjectCharacter(const FObjectInitializer& O
 void AClimbingProjectCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	Debug::Print(TEXT("Debug working"));
 }
 
 void AClimbingProjectCharacter::NotifyControllerChanged()
@@ -143,6 +141,10 @@ void AClimbingProjectCharacter::Look(const FInputActionValue& Value)
 }
 void AClimbingProjectCharacter::OnClimbActionStarted(const FInputActionValue& Value) 
 {
-	Debug::Print(TEXT("Climb action started"));
+	if (!CustomMovementComponent) return;
+
+	if (!CustomMovementComponent->IsClimbing()) CustomMovementComponent->ToggleClimbing(true);
+	else CustomMovementComponent->ToggleClimbing(false);
 }
+
 
